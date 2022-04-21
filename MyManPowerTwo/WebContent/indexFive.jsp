@@ -10,7 +10,7 @@
 
 
 <ul>
-<li><a href="indexOne.jsp">Add employee</a>></li>
+<li><a href="indexSix.jsp">Add employee</a>></li>
 <li><a href="">Add Salary</a></li>
 <li><a href="">Add leave</a></li>
 <li><a href="">Add timesheet</a></li>
