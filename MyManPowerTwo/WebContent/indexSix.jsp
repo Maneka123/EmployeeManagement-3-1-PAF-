@@ -1,7 +1,14 @@
 
+<%@page import="model.Employee"%>
 <%     
-if (request.getParameter("firstname") != null) 
+if (request.getParameter("firstname") != null) 	
 { 
+	
+	
+	 Employee empObj = new Employee(); 
+	 empObj.connect();//For testing the connect method
+	
+	
  session.setAttribute("firstname", request.getParameter("firstname")); 
  session.setAttribute("lastname", request.getParameter("lastname")); 
  session.setAttribute("date", request.getParameter("date")); 
