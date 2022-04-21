@@ -24,7 +24,7 @@ if (request.getParameter("i") != null)
 </head>
 <body>
 <form >
- <h1>Official Information</h1>
+ <h1>Salary Information</h1>
   <input type="text" id="myEmail" name="i" placeholder="Your email.."><br>
   <input type="text" id="myMonth" name="j" placeholder="Your month.."><br>
   <input type="date" id="myYear" name="k" ><br>
