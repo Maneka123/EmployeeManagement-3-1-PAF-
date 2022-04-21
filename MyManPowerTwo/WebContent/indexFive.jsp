@@ -15,9 +15,9 @@
 <li><a href="indexEight.jsp">Add leave</a></li>
 <li><a href="indexNine.jsp">Add timesheet</a></li>
 <li><a href="indexTen.jsp" >View Customer</a></li>
-<li><a href="">Salaryb Report</a></li>
-<li><a href="">Leave Report</a></li>
-<li><a href="">Timesheet Report</a></li>
+<li><a href="indexEleven.jsp">Salary Report</a></li>
+<li><a href="indexTwelve.jsp">Leave Report</a></li>
+<li><a href="indexThirteen.jsp">Timesheet Report</a></li>
 </ul>
 
 </body>

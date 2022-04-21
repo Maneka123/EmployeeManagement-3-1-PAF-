@@ -39,7 +39,7 @@ if (request.getParameter("i") != null)
 
 
 
-<h1>Salary Details</h1>
+<h1>Leave Details</h1>
 <table border="1">
  <tr>
  <th>Email</th> 
