@@ -12,7 +12,7 @@
 <ul>
 <li><a href="indexSix.jsp">Add employee</a>></li>
 <li><a href="indexSeven.jsp">Add Salary</a></li>
-<li><a href="">Add leave</a></li>
+<li><a href="indexEight.jsp">Add leave</a></li>
 <li><a href="">Add timesheet</a></li>
 <li><a href="" >View Customer</a></li>
 <li><a href="">Salaryb Report</a></li>
