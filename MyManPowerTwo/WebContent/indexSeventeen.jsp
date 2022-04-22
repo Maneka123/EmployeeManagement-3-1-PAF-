@@ -1,3 +1,15 @@
+
+
+<%//Delete item----------------------------------
+if (request.getParameter("itemID") != null) 
+{ 
+Employee itemObj = new Employee(); 
+String stsMsg = itemObj.deleteLeave(request.getParameter("itemID")); 
+session.setAttribute("statusMsgEight",stsMsg); 
+}  %>
+
+
+
 <%@page import="model.Employee"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -16,6 +28,8 @@
  out.print(itemObj.readLeaveDetails()); 
 %>
 
-
+<%
+ out.print(session.getAttribute("statusMsgEight")); 
+%>
 </body>
 </html>
