@@ -24,7 +24,7 @@ public class Employee {
 	}
 
 	// code to insert item to mysql database
-	public String insertItem(String f, String l, String d, String g,String fa,String m,String de,String dep)
+	public String insertItemOne(String f, String l, String d, String g,String fa,String m,String de,String dep)
 	{ 
 	 String output = ""; 
 
@@ -63,5 +63,57 @@ public class Employee {
 	 } 
 	return output; 
 	}
+	
+	
+	
+	
+	// code to insert item to mysql database
+		public String insertEmpTwo(String f, String l, String d, String g,String fa,String m,String de,String dep)
+		{ 
+		 String output = ""; 
+
+		try
+		 { 
+		 Connection con = connect(); 
+		 if (con == null) 
+		 { 
+		 return "Error while connecting to the database"; 
+		 } 
+		 // create a prepared statement
+		 //there are two apostrophes in the keyboard.Only using the left hand side apostrophe yields the correct output
+		 String query = " insert into cuscontact(`cAddr`,`pAddr`,`email`,`cNum`,`highEdu`,`language`,`pSkill`,`sSkill`) "+"values (?,?,?,?,?,?,?,?)"; 
+		 //java.sql.PreparedStatement preparedStmt =  con.prepareStatement(query); 
+		 java.sql.PreparedStatement preparedStmt = con.prepareStatement(query); 
+		 // binding values
+		 //remeber index starts with a zero
+		 preparedStmt.setString(1, f); 
+		 preparedStmt.setString(2, l); 
+		 preparedStmt.setString(3, d); 
+		 preparedStmt.setString(4, g); 
+		 preparedStmt.setString(5, fa); 
+		 preparedStmt.setString(6, m);
+		 preparedStmt.setString(7, de);
+		 preparedStmt.setString(8, dep);
+		 
+		 //execute the statement
+		 preparedStmt.execute(); 
+		 con.close(); 
+		 output = "Inserted contact details successfully"; 
+		 } 
+		catch (Exception e) 
+		 { 
+		 output = "Error while inserting"; 
+		 System.err.println(e.getMessage()); 
+		 } 
+		return output; 
+		}
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

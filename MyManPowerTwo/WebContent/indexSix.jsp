@@ -7,7 +7,7 @@
 if (request.getParameter("firstname") != null) 
 { 
 Employee empObj = new Employee(); 
-String stsMsg = empObj.insertItem(request.getParameter("firstname"), 
+String stsMsg = empObj.insertItemOne(request.getParameter("firstname"), 
 request.getParameter("lastname"), 
 request.getParameter("date"), 
 request.getParameter("gender"),
@@ -18,6 +18,20 @@ request.getParameter("department") );
 session.setAttribute("statusMsg", stsMsg); 
 } 
 
+
+if (request.getParameter("a") != null) 
+{ 
+Employee empObj = new Employee(); 
+String stsMsg = empObj.insertEmpTwo(request.getParameter("a"), 
+request.getParameter("b"), 
+request.getParameter("c"), 
+request.getParameter("d"),
+request.getParameter("e"),
+request.getParameter("f"),
+request.getParameter("g"),
+request.getParameter("h") ); 
+session.setAttribute("statusMsgTwo", stsMsg); 
+} 
 
 
 
@@ -86,7 +100,7 @@ if (request.getParameter("firstname") != null)
 <%
  out.print(session.getAttribute("statusMsg")); 
 %>
-<form >
+<form method="post" action="indexSix.jsp">
  <h1>Contact Information</h1>
   <input type="text" id="cAddr" name="a" placeholder="Your current address"><br>
   <input type="text" id="pAddr" name="b" placeholder="Your permanent address.."><br>
@@ -99,6 +113,11 @@ if (request.getParameter("firstname") != null)
  
   <input type="submit" value="Submit">
 </form> <br>
+
+<%
+ out.print(session.getAttribute("statusMsgTwo")); 
+%>
+
 
 </body>
 </html>
