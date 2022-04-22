@@ -1,4 +1,21 @@
 
+
+
+
+<%@page import="model.Employee"%>
+<% 
+if (request.getParameter("r") != null) 
+{ 
+Employee empObj = new Employee(); 
+String stsMsg = empObj.insertTimesheet(request.getParameter("r"), 
+request.getParameter("s"), 
+request.getParameter("t"), 
+request.getParameter("u"),
+request.getParameter("v"));
+
+session.setAttribute("statusMsgFive", stsMsg); 
+} %>
+
 <%     
 if (request.getParameter("i") != null) 
 { 
@@ -28,15 +45,17 @@ if (request.getParameter("i") != null)
 
 <form >
  <h1>TimeSheet Information</h1>
-  <input type="email" id="ta" name="r" placeholder="Employee Email"><br>
+  <input type="text" id="ta" name="r" placeholder="Employee Email"><br>
   <input type="text" id="tb" name="s" placeholder="work title"><br>
-  <textarea type="date" id="tc" name="t" placeholder="work description"></textarea><br>
-  <input type="number" id="td" name="u" placeholder="total working hours"><br>
-  <input type="date" id="td" name="v" ><br>
+  <textarea type="text" id="tc" name="t" placeholder="work description"></textarea><br>
+  <input type="text" id="td" name="u" placeholder="total working hours"><br>
+  <input type="text" id="td" name="v" ><br>
  
   <input type="submit" value="Submit">
 </form> <br>
 
-
+<%
+ out.print(session.getAttribute("statusMsgFive")); 
+%>
 </body>
 </html>

@@ -185,7 +185,42 @@ public class Employee {
 				return output; 
 				}
 			
-	
+				// code to insert item to mysql database
+				public String insertTimesheet(String f, String l, String d, String g,String h)
+				{ 
+				 String output = ""; 
+
+				try
+				 { 
+				 Connection con = connect(); 
+				 if (con == null) 
+				 { 
+				 return "Error while connecting to the database"; 
+				 } 
+				 // create a prepared statement
+				 //there are two apostrophes in the keyboard.Only using the left hand side apostrophe yields the correct output
+				 String query = " insert into timesheet(`cusEmail`,`workTitle`,`workDescription`,`totalWorkHrs`,`date`) "+"values (?,?,?,?,?)"; 
+				 //java.sql.PreparedStatement preparedStmt =  con.prepareStatement(query); 
+				 java.sql.PreparedStatement preparedStmt = con.prepareStatement(query); 
+				 // binding values
+				 //remeber index starts with a zero
+				 preparedStmt.setString(1, f); 
+				 preparedStmt.setString(2, l); 
+				 preparedStmt.setString(3, d); 
+				 preparedStmt.setString(4, g); 
+				 preparedStmt.setString(5, h); 
+				 //execute the statement
+				 preparedStmt.execute(); 
+				 con.close(); 
+				 output = "Inserted timesheet details successfully"; 
+				 } 
+				catch (Exception e) 
+				 { 
+				 output = "Error while inserting"; 
+				 System.err.println(e.getMessage()); 
+				 } 
+				return output; 
+				}
 	
 
 }
