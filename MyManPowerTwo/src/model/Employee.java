@@ -318,6 +318,7 @@ public class Employee {
 				 String f= rs.getString("language"); 
 				 String g = rs.getString("pSkill"); 
 				 String h = rs.getString("sSkill"); 
+				 String itemID = Integer.toString(rs.getInt("conID"));
 				 //String itemPrice = Double.toString(rs.getDouble("itemPrice")); 
 				 
 				 // Add a row into the html table
@@ -333,11 +334,11 @@ public class Employee {
 				 // buttons
 				 output += "<td><input name='btnUpdate' " 
 				 + " type='button' value='Update'></td>"
-				 + "<td><form method='post' action='indexFourteen.jsp'>"
+				 + "<td><form method='post' action='indexFifteen.jsp'>"
 				 + "<input name='btnRemove' " 
 				 + " type='submit' value='Remove'>"
 				 + "<input name='itemID' type='hidden' " 
-				 + " value='" +001 + "'>"+ "</form></td></tr>"; 
+				 + " value='" +itemID + "'>"+ "</form></td></tr>"; 
 				 } 
 				 con.close(); 
 				 // Complete the html table
@@ -543,6 +544,35 @@ public class Employee {
 				 java.sql.PreparedStatement preparedStmt = con.prepareStatement(query); 
 				 // binding values
 				 preparedStmt.setInt(1, Integer.parseInt(fName));
+				 
+				 // execute the statement
+				 preparedStmt.execute(); 
+				 con.close(); 
+				 output = "Deleted successfully"; 
+				 } 
+				catch (Exception e) 
+				 { 
+				 output = "Error while deleting the item."; 
+				 System.err.println(e.getMessage()); 
+				 } 
+				return output; 
+				}
+				
+				public String deleteItemTwo(String c) 
+				{ 
+				 String output = ""; 
+				try
+				 { 
+				 Connection con = connect(); 
+				 if (con == null) 
+				 { 
+				 return "Error while connecting to the database for deleting."; 
+				 } 
+				 // create a prepared statement
+				 String query = "delete from cuscontact where conID=?"; 
+				 java.sql.PreparedStatement preparedStmt = con.prepareStatement(query); 
+				 // binding values
+				 preparedStmt.setString(1, c);
 				 
 				 // execute the statement
 				 preparedStmt.execute(); 
