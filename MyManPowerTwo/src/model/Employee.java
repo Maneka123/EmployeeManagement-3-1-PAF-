@@ -379,7 +379,7 @@ public class Employee {
 				 String b = rs.getString("month"); 
 				 String c = rs.getString("year"); 
 				 String d = rs.getString("amount"); 
-				 
+				 String itemID = Integer.toString(rs.getInt("salID"));
 				 //String itemPrice = Double.toString(rs.getDouble("itemPrice")); 
 				 
 				 // Add a row into the html table
@@ -396,7 +396,7 @@ public class Employee {
 				 + "<input name='btnRemove' " 
 				 + " type='submit' value='Remove'>"
 				 + "<input name='itemID' type='hidden' " 
-				 + " value='" +001 + "'>"+ "</form></td></tr>"; 
+				 + " value='" +itemID + "'>"+ "</form></td></tr>"; 
 				 } 
 				 con.close(); 
 				 // Complete the html table
@@ -586,5 +586,37 @@ public class Employee {
 				 } 
 				return output; 
 				}
+				
+				public String deleteSal(String c) 
+				{ 
+				 String output = ""; 
+				try
+				 { 
+				 Connection con = connect(); 
+				 if (con == null) 
+				 { 
+				 return "Error while connecting to the database for deleting."; 
+				 } 
+				 // create a prepared statement
+				 String query = "delete from salary where salID=?"; 
+				 java.sql.PreparedStatement preparedStmt = con.prepareStatement(query); 
+				 // binding values
+				 preparedStmt.setString(1, c);
+				 
+				 // execute the statement
+				 preparedStmt.execute(); 
+				 con.close(); 
+				 output = "Deleted successfully"; 
+				 } 
+				catch (Exception e) 
+				 { 
+				 output = "Error while deleting the item."; 
+				 System.err.println(e.getMessage()); 
+				 } 
+				return output; 
+				}
 }
+				
+				
+
 
