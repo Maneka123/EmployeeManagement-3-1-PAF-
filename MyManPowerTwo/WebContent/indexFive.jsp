@@ -22,6 +22,7 @@
 
 
 <li><a href="indexFourteen.jsp">View official customer from database</a></li>
+<li><a href="indexFifteen.jsp">View customer contact from database</a></li>
 </ul>
 
 </body>
