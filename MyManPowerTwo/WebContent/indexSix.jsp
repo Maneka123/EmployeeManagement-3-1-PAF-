@@ -1,5 +1,30 @@
 
 <%@page import="model.Employee"%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%
+if (request.getParameter("firstname") != null) 
+{ 
+Employee empObj = new Employee(); 
+String stsMsg = empObj.insertItem(request.getParameter("firstname"), 
+request.getParameter("lastname"), 
+request.getParameter("date"), 
+request.getParameter("gender"),
+request.getParameter("fatherName"),
+request.getParameter("motherName"),
+request.getParameter("designation"),
+request.getParameter("department") ); 
+session.setAttribute("statusMsg", stsMsg); 
+} 
+
+
+
+
+
+%>
+
+
 <%     
 if (request.getParameter("firstname") != null) 	
 { 
@@ -35,8 +60,7 @@ if (request.getParameter("firstname") != null)
 
 
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,11 +69,11 @@ if (request.getParameter("firstname") != null)
 </head>
 <body>
 
-<form >
+<form method="post" action="indexSix.jsp">
  <h1>Official Information</h1>
   <input type="text" id="fname" name="firstname" placeholder="Your first name.."><br>
   <input type="text" id="lname" name="lastname" placeholder="Your last name.."><br>
-  <input type="date" id="myDate" name="date" ><br>
+  <input type="text" id="myDate" name="date" ><br>
   <input type="text" id="myGender" name="gender" placeholder="Your gender"><br>
   <input type="text" id="myFather" name="fatherName" placeholder="Your father's name.."><br>
   <input type="text" id="myMother" name="motherName" placeholder="Your mother's name.."><br>
@@ -59,7 +83,9 @@ if (request.getParameter("firstname") != null)
   <input type="submit" value="Submit">
 </form> <br>
 
-
+<%
+ out.print(session.getAttribute("statusMsg")); 
+%>
 <form >
  <h1>Contact Information</h1>
   <input type="text" id="cAddr" name="a" placeholder="Your current address"><br>
