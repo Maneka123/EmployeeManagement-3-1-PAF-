@@ -18,6 +18,10 @@
 <li><a href="indexEleven.jsp">Salary Report</a></li>
 <li><a href="indexTwelve.jsp">Leave Report</a></li>
 <li><a href="indexThirteen.jsp">Timesheet Report</a></li>
+
+
+
+<li><a href="indexFourteen.jsp">View official customer from database</a></li>
 </ul>
 
 </body>
